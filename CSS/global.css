@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital@1&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+html, body{
+    height: 100%;
+}
+
+    /* Cabeçalho */
+#header{
+    background: white;
+    height: 8%;
+    width: 100%; 
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.4);
+    position: relative;
+    z-index: 10; 
+}
+
+/*Configurando os Links*/
+
+.nav{
+    display: flex;
+    width: 90%;
+    list-style: none;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0px auto;
+}
+
+.nav-links{
+    text-decoration: none;
+    color: #2d9acc;
+    font-size: 16pt;
+}
+
+.nav-links:hover{
+    text-decoration: none;
+    color: #49c4fc;
+    font-size: 16pt;
+}
+
+/*Fim Configuração dos Links*/
+
+/*Botão de Sair*/
+.btn-sair{
+    width: 10%;
+    text-align: center;
+    
+}
+
+#sair{
+    text-decoration: none;
+    color: rgb(226, 62, 62);
+    font-size: 13pt;
+}
+
+#sair:hover{
+    text-decoration: none;
+    color: rgb(255, 80, 80);
+    font-size: 13pt;
+}
+
+/*Fim Botão de Sair*/
+    /*Fim Cabeçalho*/
+
+/*Começo do Main*/
+
+#main{
+    background-color: aliceblue;
+    width: 100%;
+    height: 85%;
+    padding-top: 8%;
+}
+
+.tabela{
+    width: 80%;
+    margin: 0px auto;
+}
+
+.adm{
+    font-size: 21pt;
+}
+
+.fin{
+    font-size: 16pt;
+}
+
+.ths-tds{
+    text-align: center;
+    padding: 15px;
+    border: 1.9px solid black;
+}
+
+/*Fim do Main*/
+
+/*Começo Footer*/
+
+#footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 7%;
+    font-size: 16pt;
+    box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.4);
+}
+
+/*Fim Footer*/
