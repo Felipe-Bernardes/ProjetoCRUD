@@ -1,5 +1,6 @@
 <?php
     require_once "conexao.php";
+    session_start();
 
     class CRUD{
 
@@ -77,6 +78,41 @@
                 }else{
                     echo "Erro ao Selecionar os Usuarios!";
                 }
+            }catch(PDOException $e){
+                echo "Erro: ". $e->getMessage();
+            }
+        }
+        
+        public function VerificaUserID($id){
+            try{
+                global $con;
+
+                $sql = $con->prepare('SELECT * FROM usuarios WHERE usu_id = ?');
+                $sql->bindParam(1, $id);
+                $sql->execute();
+
+                if($sql->rowCount() > 0){
+                    $result = $sql->fetchAll();
+                    return $result;
+                }else{
+                    echo "Erro ao Selecionar Usuario";
+                }
+            }catch(PDOException $e){
+                echo "Erro: ". $e->getMessage();
+            }
+        }
+
+        public function FetchUsers(){
+            try{
+                global $con;
+                    $sql = $con->query('SELECT * FROM usuarios');
+
+                    if($sql->rowCount() > 0){
+                        $result = $sql->fetchAll();
+                        return $result;
+                    }else{
+                        echo "Erro ao Selecionar Usuarios!";
+                    }
             }catch(PDOException $e){
                 echo "Erro: ". $e->getMessage();
             }

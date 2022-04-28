@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servidor Geral</title>
-    <link rel="stylesheet" href="../CSS/global.css">
+    <link rel="stylesheet" href="../CSS/server.css">
 </head>
 <body>
     <header id="header">

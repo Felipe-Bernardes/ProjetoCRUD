@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Usuario</title>
+    <title>Login de Usuario</title>
     <link rel="stylesheet" href="../CSS/login.css">
 </head>
 <body>
@@ -21,13 +21,13 @@
                     if($logica == 1){
                         echo "<span class='jacad'> Usuário não encontrado.</span>";
                         echo "<script src='../js/togglejacad.js'></script>";
-                        session_unset($_SESSION["erro"]);
+                        $_SESSION["erro"] = 0;
                     }
 
                     if($logica == 2){
                         echo "<span class='erro'>Preencha Todos os Campos!</span>";
                         echo "<script src='../js/toggleerro.js'></script>";
-                        session_unset($_SESSION["erro"]);
+                        $_SESSION["erro"] = 0;
                      }
                 ?>
                <h2 class="log">Área de Login</h2>

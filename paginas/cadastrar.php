@@ -20,12 +20,12 @@
                     if($logica == 1){
                         echo "<span class='jacad'> Usuário Ja Cadastrado.</span>";
                         echo "<script src='../js/togglejacad.js'></script>";
-                        session_unset($_SESSION["erro"]);
+                        $_SESSION["erro"] = 0;
                     }
                     if($logica == 2){
                         echo "<span class='erro'> Preencha Todos os Campos!</span>";
                         echo "<script src='../js/toggleerro.js'></script>";
-                        session_unset($_SESSION["erro"]);
+                        $_SESSION["erro"] = 0;
                     }
                  ?>
                 <h2 id="cad">Cadastro de Usuario</h1>
