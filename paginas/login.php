@@ -1,5 +1,6 @@
 <?php
         session_start();
+        $logica = 0;
         if(!empty($_SESSION["erro"])){
             $logica = $_SESSION["erro"];
         }

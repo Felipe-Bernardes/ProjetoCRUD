@@ -1,6 +1,5 @@
 <?php
     require_once "../assets/crudsystem.php"; // Chama a Class CRUD.
-    session_start(); // Inicia a Sessão.
 
     /* Verifica se a Variavel 'Nome' e 'Senha' Está Setado Dentro da Sessão. */
 
@@ -9,7 +8,7 @@
     }
 
     /* Verifica se Tem Algo na Sessão com o Nome ERRO. */
-
+    $logica = 0;
     if(!empty($_SESSION["erro"])){
         $logica = $_SESSION["erro"]; // Seta a Variavel logica Com o Conteudo da Sessão ERRO.
     }
@@ -74,7 +73,7 @@
                     ?>
                 </select>
 
-                <input type="submit" value="Cadastrar" id="btnCad" name="btnCadastro">
+                <input type="submit" value="Atualizar" id="btnCad" name="btnCadastro">
 
             </form>
     <?php 

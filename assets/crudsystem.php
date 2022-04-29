@@ -82,6 +82,25 @@
                 echo "Erro: ". $e->getMessage();
             }
         }
+
+        public function VerificaUserEdit($nome, $email){
+            try{
+                global $con;
+                    $sql = $con->prepare('SELECT * FROM usuarios WHERE usu_nome = ? AND usu_email = ?');
+                    $sql->bindParam(1, $nome);
+                    $sql->bindParam(2, $email);
+                    $sql->execute();
+
+                if($sql->rowCount() > 0){
+                    $result = $sql->fetchAll();
+                    return $result;
+                }else{
+                    echo "Erro ao Selecionar os Usuarios!";
+                }
+            }catch(PDOException $e){
+                echo "Erro: ". $e->getMessage();
+            }
+        }
         
         public function VerificaUserID($id){
             try{

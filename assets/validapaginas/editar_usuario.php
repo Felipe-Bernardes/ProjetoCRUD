@@ -1,6 +1,4 @@
 <?php
-    session_start();
-
     require_once "../crudsystem.php";
 
     $PEGA_ID = $_GET['id'];
@@ -15,19 +13,27 @@
     $_SESSION["erro"] = 0;
 
     $Editar = new CRUD;
-
     if($btnLogin){
         if(!empty($nome) && !empty($email) && !empty($senha) && !empty($repetesenha) && !empty($perm) && $senha === $repetesenha && $perm != 0){
-            $resultado = $Editar->EditarUser($PEGA_ID, $nome, $senha, $email, $perm);
-            echo "
-                <script>
-                    alert('Atualizado com Sucesso')
-                    document.location.href='../../paginas/adm.php'
-                </script>
-            ";    
-
+            $verifica = $Editar->VerificaUserEdit($nome, $email);
+            if($verifica){
+                echo "
+                    <script>
+                        alert('Nada Foi Mudado!')
+                        document.location.href='../../paginas/adm.php'
+                    </script>
+                "; 
+            }else{
+                $resultado = $Editar->EditarUser($PEGA_ID, $nome, $senha, $email, $perm);
+                echo "
+                    <script>
+                        alert('Atualizado com Sucesso')
+                        document.location.href='../../paginas/adm.php'
+                    </script>
+                ";    
+            }
         }else{
-            $_SESSION["erro"] = 1;
+            $_SESSION["erro"] = 2;
             header("Location: ../../paginas/editar.php?id=". $PEGA_ID);
         }
     }

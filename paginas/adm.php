@@ -1,11 +1,10 @@
 <?php
-    session_start();
-
+    require_once "../assets/crudsystem.php";
+    
     if(!isset($_SESSION["nome"]) && !isset($_SESSION["senha"])){
         header('Location: ../index.html');
     }
 
-    require_once "../assets/crudsystem.php";
     $users = new CRUD;
     $usuario = $users->FetchUsers();
 ?>
@@ -20,34 +19,40 @@
 </head>
 <body>
     <div class="container">
+        <header class="topo">
+            <a class="back" href="server.php">Voltar</a>
+        </header>
         <section class="conteudo">
-            <table class="tabela" border="1">
+            <table class="tabela">
                 <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Senha</th>
-                    <th>Email</th>
-                    <th>Permissão</th>
-                    <th>Edição</th>
-                    <th>Exclusão</th>
+                    <th class="lista tamanho-1">IDs</th>
+                    <th class="lista tamanho-1">Nomes</th>
+                    <th class="lista tamanho-1">Senhas</th>
+                    <th class="lista tamanho-1">Emails</th>
+                    <th class="lista tamanho-1">Permissões</th>
+                    <th class="lista tamanho-1">Edição</th>
+                    <th class="lista tamanho-1">Exclusão</th>
                 </tr>
                 <?php
                     if($usuario){
                         foreach($usuario as $user){
                             echo "<tr>";
-                            echo "<td>". $user['usu_id']."</td>";
-                            echo "<td>".$user['usu_nome']."</td>";
-                            echo "<td>".$user['usu_senha']."</td>";
-                            echo "<td>".$user['usu_email']."</td>";
-                            echo "<td>".$user['usu_perm']."</td>";
-                            echo "<td><a href='editar.php?id=$user[usu_id]'>Editar</a></td>";
-                            echo "<td><a href='excluir.php?id=$user[usu_id]'>Excluir</a></td>";
+                            echo "<td class='lista tamanho-2'>".$user['usu_id']."</td>";
+                            echo "<td class='lista tamanho-2'>".$user['usu_nome']."</td>";
+                            echo "<td class='lista tamanho-2'>".$user['usu_senha']."</td>";
+                            echo "<td class='lista tamanho-2'>".$user['usu_email']."</td>";
+                            echo "<td class='lista tamanho-2'>".$user['usu_perm']."</td>";
+                            echo "<td class='lista'><a class='link' href='editar.php?id=$user[usu_id]'>Editar</a></td>";
+                            echo "<td class='lista'><a class='link' href='excluir.php?id=$user[usu_id]'>Excluir</a></td>";
                             echo "</tr>";
                         }
                     }
                 ?>
             </table>
         </section>
+        <footer class="rodape">
+            <p>Desenvolvido por: Felipe Bernardes</p>
+        </footer>
     </div>
 </body>
 </html>
