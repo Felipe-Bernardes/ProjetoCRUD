@@ -18,16 +18,15 @@
             }
         }
 
-        public function EditarUser($id, $nome, $senha, $email, $perm){
+        public function EditarUser($id, $nome, $senha, $email){
 
             try{
             global $con;
-                $edit = $con->prepare("UPDATE usuarios SET usu_nome = ?, usu_senha = ?, usu_email = ?, usu_perm = ? WHERE usu_id = ? ");
+                $edit = $con->prepare("UPDATE usuarios SET usu_nome = ?, usu_senha = ?, usu_email = ? WHERE usu_id = ? ");
                 $edit->bindParam(1, $nome);
                 $edit->bindParam(2, $senha);
                 $edit->bindParam(3, $email);
-                $edit->bindParam(4, $perm);
-                $edit->bindParam(5, $id);
+                $edit->bindParam(4, $id);
                 $edit->execute();
             } catch(PDOException $e){
                 echo "Erro: ". $e->getMessage();

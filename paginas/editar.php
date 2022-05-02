@@ -37,7 +37,7 @@
     <div class="container">
        <div class="box">
             <?php echo "<form action='../assets/validapaginas/editar_usuario.php?id=$PEGA_ID' method='POST' id='form'>"; // Quando for Submitado Ele manda para a pagina editar com o id do usuario
-                    if($logica == 1){ // Se a Variavel 'logica' for 1 ele da o erro.
+                    if($logica == 2){ // Se a Variavel 'logica' for 1 ele da o erro.
                             echo "<span class='erro'> Preencha Todos os Campos!</span>"; // Mensagem do Erro.
                             echo "<script src='../js/toggleerro.js'></script>"; // Script para dar Toggle na Mensagem (Não é necessario).
                             $_SESSION["erro"] = 0;

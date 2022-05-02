@@ -10,21 +10,23 @@
     $repetesenha = addslashes($_POST["passtxt2"]);
     $perm = addslashes($_POST["perm"]);
 
+    $permissao = intval($perm);
+
     $_SESSION["erro"] = 0;
 
     $Editar = new CRUD;
     if($btnLogin){
-        if(!empty($nome) && !empty($email) && !empty($senha) && !empty($repetesenha) && !empty($perm) && $senha === $repetesenha && $perm != 0){
+        if(!empty($nome) && !empty($email) && !empty($senha) && !empty($repetesenha) && !empty($perm) && $senha === $repetesenha && $permissao != 0){
             $verifica = $Editar->VerificaUserEdit($nome, $email);
             if($verifica){
                 echo "
-                    <script>
-                        alert('Nada Foi Mudado!')
+                <script>
+                        alert('O Nome e o Email não Foram Alterados!')
                         document.location.href='../../paginas/adm.php'
-                    </script>
-                "; 
+                </script>
+                ";
             }else{
-                $resultado = $Editar->EditarUser($PEGA_ID, $nome, $senha, $email, $perm);
+                $resultado = $Editar->EditarUser($PEGA_ID, $nome, $senha, $email);
                 echo "
                     <script>
                         alert('Atualizado com Sucesso')
