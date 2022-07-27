@@ -21,6 +21,7 @@
     <header id="header">
         <ul class="nav">
             <li><a class="nav-links" href="perfil.php">Meu Perfil</a></li>
+            
             <?php if($permissao == 1){ ?>
             <li><a class="nav-links" href="adm.php">Área Administrativa</a></li>
             <?php } ?>
